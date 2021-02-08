@@ -10,7 +10,7 @@ from marvel_api.helpers import get_jwt, token_required, verify_owner
 def home(): 
     return render_template('home.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/signup', methods = ['GET', 'POST'])
 def signup(): 
     form = UserLoginForm()
     try: 
@@ -23,7 +23,7 @@ def signup():
 
             db.session.add(user)
             db.session.commit()
-
+            return redirect(url_for('signin'))
     except: 
         raise Exception('Invalid Form Data: Please Check Your Form')
     return render_template('signup.html', form=form)

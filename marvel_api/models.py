@@ -14,10 +14,6 @@ def load_user(user_id):
 
 
 
-
-
-
-
 class User(db.Model, UserMixin):
     id = db.Column(db.String, primary_key = True)
     first_name = db.Column(db.String(150), nullable = True, default = '')
